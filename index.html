@@ -49,13 +49,15 @@
             console.log("correctAnswer: " + correctAnswer);
             console.log("firstPokemonFromAPI: " + firstPokemonFromAPI);
             console.log("firstPokemonFromAPIPictureURL: " + firstPokemonFromAPIPictureURL);
-
+            
+            // Displaying the Pokemon image on the page.
             document.getElementById('pokemonOnTheScreen').src = firstPokemonFromAPIPictureURL;
-            // Mapping the Pokemon name to the HTML button
+            // Mapping the Pokemon name to the HTML button.
             const pokemon_button = document.getElementById('pokemon-button');
             pokemon_button.textContent = firstPokemonFromAPI;
         });
 
+        // Fetching the second Pokemon from the API.
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber2}`)
         .then((response) => response.json())
         .then((data) => {
@@ -67,6 +69,7 @@
             pokemon_button2.textContent = secondPokemonFromAPI;
         });
 
+        // Fetching the third Pokemon from the API.
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber3}`)
         .then((response) => response.json())
         .then((data) => {
@@ -78,6 +81,7 @@
             pokemon_button3.textContent = thirdPokemonFromAPI;
         });
 
+        // Fetching the fourth Pokemon from the API.
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber4}`)
         .then((response) => response.json())
         .then((data) => {

@@ -9,6 +9,95 @@
 <body>
     <h2>Who's that Pokemon?</h2>
     <img src="https://i.chzbgr.com/full/8986179584/h30AE50F2/whos-that-pokemon" width="400" height="300">
+    <script>
+        // Todo: Replace the below array with data from a JSON request, such as a Pokemon API.
+        // Array of all of our Pokemon
+        const Pokemon = ["Pikachu", "Vulpix", "Eevee", "Deez Nuts", "Fire Mon", "Poop", "Dratini", "Dragon", "Ekans"];
+
+        // Picks 4 random Pokemon from the above data.
+        let randomPokemon = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+        let randomPokemon2 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+        let randomPokemon3 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+        let randomPokemon4 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+        console.log("Pokemon have been randomized.");
+
+        // Array of Pokemon that we hope are randomized correctly (I'll give you a hint - they're not.)
+        const hopefullyRandomPokemon = [randomPokemon, randomPokemon2, randomPokemon3, randomPokemon4];
+
+        // Function that checks arrays for duplicates that I will reference later. Found this on Stack Overflow. 
+        // Logs duplicates to the Chrome dev console.
+        let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
+        duplicates = (findDuplicates(hopefullyRandomPokemon))
+        console.log(duplicates)
+        console.log(duplicates.length)
+
+        // This is a loop that constantly checks for duplicate Pokemon and randomizes them until there are no more duplicates.
+        // I'm very sorry for this monstrosity.
+        while (randomPokemon == randomPokemon2 || randomPokemon == randomPokemon3 || randomPokemon == randomPokemon4 ||
+        randomPokemon2 == randomPokemon3 || randomPokemon2 == randomPokemon4 || randomPokemon3 == randomPokemon4) {
+
+            randomPokemon = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+            randomPokemon2 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+            randomPokemon3 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+            randomPokemon4 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+
+            while (randomPokemon == randomPokemon2) {
+                randomPokemon = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("1: randomPokemon:" + randomPokemon);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
     
+            while (randomPokemon == randomPokemon3) {
+                randomPokemon = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("2: randomPokemon:" + randomPokemon);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
+    
+            while (randomPokemon == randomPokemon4) {
+                randomPokemon = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("3: randomPokemon:" + randomPokemon);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
+    
+            while (randomPokemon2 == randomPokemon3) {
+                randomPokemon2 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("4: randomPokemon2:" + randomPokemon2);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
+    
+            while (randomPokemon2 == randomPokemon4) {
+                randomPokemon2 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("5: randomPokemon2:" + randomPokemon2);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
+    
+            while (randomPokemon3 == randomPokemon4) {
+                randomPokemon3 = Pokemon[Math.floor(Math.random()*Pokemon.length)];
+                duplicates = (findDuplicates(hopefullyRandomPokemon))
+                console.log("6: randomPokemon3:" + randomPokemon3);
+                duplicates.pop()
+                console.log("Duplicates length: " + duplicates.length)
+            }
+        }
+
+        // Finally, now that the Pokemon are randomized, this prints the in the console.
+        // We will use these variables in our button text.
+        console.log("Now the buttons text:")
+        console.log(randomPokemon)
+        console.log(randomPokemon2)
+        console.log(randomPokemon3)
+        console.log(randomPokemon4)
+        
+    </script>
 </body>
 </html>

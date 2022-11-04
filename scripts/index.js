@@ -17,10 +17,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
 
     console.log("correctAnswer: " + correctAnswer);
     console.log("firstPokemonFromAPI: " + firstPokemonFromAPI);
-    console.log("firstPokemonFromAPIPictureURL: " + firstPokemonFromAPIPictureURL);
+    console.log(
+      "firstPokemonFromAPIPictureURL: " + firstPokemonFromAPIPictureURL
+    );
 
     // Displaying the Pokemon image on the page.
-    document.getElementById("pokemonOnTheScreen").src = firstPokemonFromAPIPictureURL;
+    document.getElementById("pokemonOnTheScreen").src =
+      firstPokemonFromAPIPictureURL;
     // Mapping the Pokemon name to the HTML button.
     const pokemon_button = document.getElementById("pokemon-button");
     pokemon_button.textContent = firstPokemonFromAPI;

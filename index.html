@@ -17,10 +17,10 @@
    
     <div class="container"><p>Take a guess!</p>
     <div class="quiz">
-    <input type="radio" value="Answer">Answer<br>
-    <input type="radio" value="Answer">Answer<br>
-    <input type="radio" value="Answer">Answer<br>
-    <input type="radio" value="Answer">Answer<br>
+    <button id="pokemon-button"><br>
+    <button id="pokemon-button2"><br>
+    <button id="pokemon-button3"><br>
+    <button id="pokemon-button4"><br>
     </div>
     </div>
 </div>
@@ -114,6 +114,26 @@
         console.log(randomPokemon2)
         console.log(randomPokemon3)
         console.log(randomPokemon4)
+
+        // Initializing the variables that map the random Pokemon's names from the data source to buttons in the HTML.
+        const pokemon_button = document.getElementById('pokemon-button');
+        const pokemon_button2 = document.getElementById('pokemon-button2');
+        const pokemon_button3 = document.getElementById('pokemon-button3');
+        const pokemon_button4 = document.getElementById('pokemon-button4');
+
+        // Mapping the Pokemon names to the HTML buttons
+        pokemon_button.textContent = randomPokemon;
+        pokemon_button2.textContent = randomPokemon2;
+        pokemon_button3.textContent = randomPokemon3;
+        pokemon_button4.textContent = randomPokemon4;
+
+
+        // To do - add logic that checks to see if answer is correct or not. Example:
+        // pokemon_button.addEventListener('click', function handleClick() {
+        //     pokemon_button.textContent = 'Answer correct';
+        // });
+
+        
         
     </script>
 </body>

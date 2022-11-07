@@ -4,7 +4,7 @@ html {
 
 body {
   font-family: "Poor Story", serif;
-  background: linear-gradient(180deg, rgb(47, 47, 47), rgb(18, 18, 18));
+  background: linear-gradient(180deg, rgb(51,51,51), rgb(17,17,17));
   margin: 32px;
 }
 
@@ -16,7 +16,7 @@ header {
 }
 
 header h1 {
-  color: white;
+  color: rgb(250,240,230);
   font-size: 4rem;
   font-weight: 300;
   margin: 0;
@@ -33,7 +33,7 @@ main {
 }
 
 #title p {
-  color: white;
+  color: rgb(250,240,230);
   font-size: 2rem;
   text-align: center;
   margin: 0;
@@ -46,16 +46,14 @@ main {
   grid-column-end: 3;
 }
 
-.picture {
-  object-fit: cover;
-}
-
 #img {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto 30px auto auto;
-  align-items: center;
+  object-fit: cover;
+  width: 15rem;
+  height: 15rem;
 }
 
 #quiz {
@@ -80,9 +78,9 @@ main {
 button {
   width: 300px;
   height: 75px;
-  background: linear-gradient(180deg, rgb(24, 24, 24), rgb(9, 9, 9));
-  color: white;
-  border-color: rgb(193, 193, 193);
+  background: rgb(85,85,85);
+  color: rgb(250,240,230);
+  border-color: rgb(250,240,230);
   border-radius: 10px;
   font-family: "Poor Story", serif;
   font-size: 1.25rem;
@@ -90,13 +88,15 @@ button {
 }
 
 button:hover {
-  background: rgb(31, 31, 31);
+  background: rgb(88, 88, 88);
+  color: rgb(17,17,17);
+  border-color: rgb(238,217,196);
 }
 
 button:active {
-  background: linear-gradient(0deg, rgb(24, 24, 24), rgb(9, 9, 9));
-  border-color: rgb(255, 255, 255);
-  color: rgb(255, 242, 221);
+  background: rgb(119,119,119);
+  border-color: rgb(217,185,155);
+  color: rgb(17,17,17);
 }
 
 #butts {
@@ -113,9 +113,8 @@ button:active {
   #img {
     grid-column-start: 1;
     grid-column-end: 3;
-    margin: 0 auto;
+    margin: auto auto;
   }
-
   #quiz {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -133,7 +132,6 @@ button:active {
     border-radius: 7px;
     font-size: 1.15rem;
   }
-
   #butts {
     display: flex;
     justify-content: center;

@@ -1,180 +1,53 @@
-const totalNumberOfPokemon = 895;
+const TOTAL_NUMBER_OF_POKEMON = 895;
+const NUMBER_OF_BUTTONS = 4;
 
-// Generates a random Pokedex number for each of the four buttons to query the API with.
-let randomNumber = Math.floor(Math.random() * totalNumberOfPokemon) + 1;
-let randomNumber2 = Math.floor(Math.random() * totalNumberOfPokemon) + 1;
-let randomNumber3 = Math.floor(Math.random() * totalNumberOfPokemon) + 1;
-let randomNumber4 = Math.floor(Math.random() * totalNumberOfPokemon) + 1;
+async function getRandomPokemon(amount) {
+    const allPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon-species/?limit=${TOTAL_NUMBER_OF_POKEMON}`)
+        .then(res => res.json());
 
-// Fetching the first Pokemon from the API. The first Pokemon fetched is always the correct answer.
-fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    let firstPokemonFromAPI = data.name;
-    let correctAnswer = firstPokemonFromAPI;
-    let firstPokemonFromAPIPictureURL = data.sprites.front_default;
+    const randomPokemon = allPokemon.results
+        .sort(() => Math.random() * 2 - 1)
+        .slice(0, amount);
 
-    console.log("correctAnswer: " + correctAnswer);
-    console.log("firstPokemonFromAPI: " + firstPokemonFromAPI);
-    console.log(
-      "firstPokemonFromAPIPictureURL: " + firstPokemonFromAPIPictureURL
-    );
-
-    // Displaying the Pokemon image on the page.
-    document.getElementById("pokemonOnTheScreen").src =
-      firstPokemonFromAPIPictureURL;
-    // Mapping the Pokemon name to the HTML button.
-    const pokemon_button = document.getElementById("pokemon-button");
-    pokemon_button.textContent = firstPokemonFromAPI;
-  });
-
-// Fetching the second Pokemon from the API.
-fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber2}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    let secondPokemonFromAPI = data.name;
-    console.log(secondPokemonFromAPI);
-    // Mapping Pokemon name to the HTML button
-    const pokemon_button2 = document.getElementById("pokemon-button2");
-    pokemon_button2.textContent = secondPokemonFromAPI;
-  });
-
-// Fetching the third Pokemon from the API.
-fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber3}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    let thirdPokemonFromAPI = data.name;
-    console.log(thirdPokemonFromAPI);
-    // Mapping Pokemon name to the HTML button
-    const pokemon_button3 = document.getElementById("pokemon-button3");
-    pokemon_button3.textContent = thirdPokemonFromAPI;
-  });
-
-// Fetching the fourth Pokemon from the API.
-fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber4}`)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    let fourthPokemonFromAPI = data.name;
-    console.log(fourthPokemonFromAPI);
-    // Mapping Pokemon name to the HTML button
-    const pokemon_button4 = document.getElementById("pokemon-button4");
-    pokemon_button4.textContent = fourthPokemonFromAPI;
-  });
-
-// Todo: Review the below code and how to merge the findDuplicates logic with the new API above. It's disconnected now.
-// Array of all of our Pokemon (needs updating with new API data)
-const Pokemon = [
-  "Pikachu",
-  "Vulpix",
-  "Eevee",
-  "Deez Nuts",
-  "Fire Mon",
-  "Poop",
-  "Dratini",
-  "Dragon",
-  "Ekans",
-];
-
-// Picks 4 random Pokemon from the above data.
-let randomPokemon = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-let randomPokemon2 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-let randomPokemon3 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-let randomPokemon4 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-console.log("Pokemon have been randomized.");
-
-// Array of Pokemon that we hope are randomized correctly (I'll give you a hint - they're not.)
-const hopefullyRandomPokemon = [
-  randomPokemon,
-  randomPokemon2,
-  randomPokemon3,
-  randomPokemon4,
-];
-
-// Function that checks arrays for duplicates that I will reference later. Found this on Stack Overflow.
-// Logs duplicates to the Chrome dev console.
-let findDuplicates = (arr) =>
-  arr.filter((item, index) => arr.indexOf(item) != index);
-duplicates = findDuplicates(hopefullyRandomPokemon);
-console.log(duplicates);
-console.log(duplicates.length);
-
-// This is a loop that constantly checks for duplicate Pokemon and randomizes them until there are no more duplicates.
-// I'm very sorry for this monstrosity.
-while (
-  randomPokemon == randomPokemon2 ||
-  randomPokemon == randomPokemon3 ||
-  randomPokemon == randomPokemon4 ||
-  randomPokemon2 == randomPokemon3 ||
-  randomPokemon2 == randomPokemon4 ||
-  randomPokemon3 == randomPokemon4
-) {
-  randomPokemon = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-  randomPokemon2 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-  randomPokemon3 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-  randomPokemon4 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-
-  while (randomPokemon == randomPokemon2) {
-    randomPokemon = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("1: randomPokemon:" + randomPokemon);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
-
-  while (randomPokemon == randomPokemon3) {
-    randomPokemon = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("2: randomPokemon:" + randomPokemon);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
-
-  while (randomPokemon == randomPokemon4) {
-    randomPokemon = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("3: randomPokemon:" + randomPokemon);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
-
-  while (randomPokemon2 == randomPokemon3) {
-    randomPokemon2 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("4: randomPokemon2:" + randomPokemon2);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
-
-  while (randomPokemon2 == randomPokemon4) {
-    randomPokemon2 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("5: randomPokemon2:" + randomPokemon2);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
-
-  while (randomPokemon3 == randomPokemon4) {
-    randomPokemon3 = Pokemon[Math.floor(Math.random() * Pokemon.length)];
-    duplicates = findDuplicates(hopefullyRandomPokemon);
-    console.log("6: randomPokemon3:" + randomPokemon3);
-    duplicates.pop();
-    console.log("Duplicates length: " + duplicates.length);
-  }
+    return randomPokemon;
 }
 
-// Finally, now that the Pokemon are randomized, this prints the in the console.
-// We will use these variables in our button text.
-console.log("Now the buttons text:");
-console.log(randomPokemon);
-console.log(randomPokemon2);
-console.log(randomPokemon3);
-console.log(randomPokemon4);
+async function getWinnerPokemon(pokemonList) {
+    const index = Math.floor(pokemonList.length * Math.random())
+    const basicWinnerObj = await fetch(pokemonList[index].url).then(res => res.json())
+    const id = basicWinnerObj.id;
 
-// To do - add logic that checks to see if answer is correct or not. Example:
-// pokemon_button.addEventListener('click', function handleClick() {
-//     pokemon_button.textContent = 'Answer correct';
-// });
+    const winner = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json())
+    return winner;
+}
+
+
+async function setupGame() {
+    const pokemonButtons = document.querySelectorAll('.pokemon-button');
+
+    const randomPokemon = await getRandomPokemon(NUMBER_OF_BUTTONS);
+
+    const winner = await getWinnerPokemon(randomPokemon);
+
+    const img = document.getElementById("pokemonOnTheScreen");
+    img.src = winner.sprites.front_default;
+
+    for (let i = 0; i < pokemonButtons.length; i++) {
+        const pokemonButton = pokemonButtons[i];
+
+        const name = randomPokemon[i].name;
+
+        pokemonButton.textContent = name;
+        pokemonButton.addEventListener('click', e => {
+            if (name === winner.name) {
+                alert("You won");
+            } else {
+                alert("Go home, loser! >:(");
+            }
+        })
+    }
+}
+
+setupGame();
+
+document.querySelector('.reset-button').addEventListener('click', setupGame);

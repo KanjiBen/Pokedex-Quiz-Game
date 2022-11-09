@@ -24,11 +24,9 @@ async function getWinnerPokemon(pokemonList) {
 
 async function setupGame() {
     const pokemonButtons = document.querySelectorAll('.pokemon-button');
-
     const randomPokemon = await getRandomPokemon(NUMBER_OF_BUTTONS);
-
     const winner = await getWinnerPokemon(randomPokemon);
-
+    
     const img = document.getElementById("pokemonOnTheScreen");
     img.src = winner.sprites.front_default;
 

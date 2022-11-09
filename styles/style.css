@@ -80,9 +80,9 @@ main {
 button {
   width: 300px;
   height: 75px;
-  background: linear-gradient(180deg, rgb(24, 24, 24), rgb(9, 9, 9));
-  color: white;
-  border-color: rgb(193, 193, 193);
+  background: rgb(85,85,85);
+  color: rgb(250,240,230);
+  border-color: rgb(250,240,230);
   border-radius: 10px;
   font-family: "Poor Story", serif;
   font-size: 1.25rem;

@@ -1,6 +1,11 @@
 const TOTAL_NUMBER_OF_POKEMON = 895;
 const NUMBER_OF_BUTTONS = 4;
 
+async function hideLoadingCircle() {
+    const loadingCircle = document.getElementById("loading");
+    loadingCircle.style.display = "none";
+  }
+
 async function getRandomPokemon(amount) {
     const allPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon-species/?limit=${TOTAL_NUMBER_OF_POKEMON}`)
         .then(res => res.json());
@@ -29,6 +34,8 @@ async function setupGame() {
     
     const img = document.getElementById("pokemonOnTheScreen");
     img.src = winner.sprites.front_default;
+
+    hideLoadingCircle();
 
     for (let i = 0; i < pokemonButtons.length; i++) {
         const pokemonButton = pokemonButtons[i];

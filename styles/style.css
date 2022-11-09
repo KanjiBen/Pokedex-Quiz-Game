@@ -105,6 +105,30 @@ button:active {
   padding: 2rem 0 0 0;
 }
 
+/* Loading Image Circle */
+#img #loading {
+  animation: spin 2s linear infinite;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 5px solid rgb(0, 0, 0.2);
+  border-right-color: rgb(245, 239, 239);
+  animation: loading-animation 2s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Animation to Show the Loading Rotating */
+@keyframes loading-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 48rem) {
   main {
     grid-template-columns: 1fr;

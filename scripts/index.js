@@ -3,22 +3,31 @@ const NUMBER_OF_BUTTONS = 4;
 const WINNING_BUTTON_BACKGROUND_COLOR = '#00D100';
 const DEFAULT_BUTTON_BACKGROUND_COLOR = '#555555';
 
+function sayYouWon() {
+    const subHeadingText = document.querySelector('.subtext');
+    subHeadingText.textContent = "You won!";
+}
 
-async function changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR) {
+function sayYouLost() {
+    const subHeadingText = document.querySelector('.subtext');
+    subHeadingText.textContent = "You lost! Get a job loser";
+}
+
+function changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR) {
   document.getElementById("pokemon-button1").style.background=WINNING_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button2").style.background=WINNING_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button3").style.background=WINNING_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button4").style.background=WINNING_BUTTON_BACKGROUND_COLOR;
 }
 
-async function changePokemonButtonColorsToDefault(DEFAULT_BUTTON_BACKGROUND_COLOR) {
+function changePokemonButtonColorsToDefault(DEFAULT_BUTTON_BACKGROUND_COLOR) {
   document.getElementById("pokemon-button1").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button2").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button3").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
   document.getElementById("pokemon-button4").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
 }
 
-async function hideLoadingCircle() {
+function hideLoadingCircle() {
     const loadingCircle = document.getElementById("loading");
     loadingCircle.style.display = "none";
   }
@@ -64,10 +73,10 @@ async function setupGame() {
         pokemonButton.addEventListener('click', e => {
             if (name === winner.name) {
                 console.log("setupGame() name: " + name);
-                alert("You won");
                 changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR);
+                sayYouWon()
             } else {
-                alert("Go home, loser! >:(");
+                sayYouLost()
             }
         })
     }

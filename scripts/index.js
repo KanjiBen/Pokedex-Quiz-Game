@@ -1,6 +1,6 @@
 const TOTAL_NUMBER_OF_POKEMON = 895;
 const NUMBER_OF_BUTTONS = 4;
-const WINNING_BUTTON_BACKGROUND_COLOR = '#00D100'
+const WINNING_BUTTON_BACKGROUND_COLOR = '#00D100';
 const DEFAULT_BUTTON_BACKGROUND_COLOR = '#555555';
 
 
@@ -63,6 +63,7 @@ async function setupGame() {
         pokemonButton.textContent = name; 
         pokemonButton.addEventListener('click', e => {
             if (name === winner.name) {
+                console.log("setupGame() name: " + name);
                 alert("You won");
                 changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR);
             } else {
@@ -72,7 +73,12 @@ async function setupGame() {
     }
 }
 
+function refreshPage() {
+    location.reload();
+    return false;
+}
+
 setupGame();
 
 
-document.querySelector('.reset-button').addEventListener('click', setupGame);
+document.querySelector('.reset-button').addEventListener('click', refreshPage);

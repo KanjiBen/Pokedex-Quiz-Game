@@ -167,14 +167,15 @@ button:active {
 
 .foda-se {
   display: inline-block;
-  animation: wiggle 2.5s infinite;
   }
 
 @keyframes wiggle {
   0% { transform: rotate(0deg); }
- 80% { transform: rotate(0deg); }
- 85% { transform: rotate(5deg); }
- 95% { transform: rotate(-5deg); }
+ 25% { transform: rotate(10deg); }
+ 75% { transform: rotate(-10deg); }
 100% { transform: rotate(0deg); }
 }
 
+.wiggle {
+  animation: wiggle 0.5s;
+}

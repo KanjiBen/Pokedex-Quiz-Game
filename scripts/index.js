@@ -66,6 +66,7 @@ async function setupGame() {
             if (name === winner.name) {
                 console.log("setupGame() name: " + name);
                 changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR);
+                pokemonButton.classList.add("wiggle")
                 sayYouWon()
             } else {
                 sayYouLost()

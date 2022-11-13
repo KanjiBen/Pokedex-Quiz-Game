@@ -1,4 +1,7 @@
 # Pokedex-Quiz-Game
+
+Try the game here: https://akuchimoya.github.io/Pokedex-Quiz-Game/
+
 How to contribute 😃:
 1. Clone the repository. 
 I have found GitHub Desktop to be a very easy method for cloning repositories. You can download it here: https://desktop.github.com/  

@@ -20,13 +20,6 @@ function changePokemonButtonColorsToGreen(WINNING_BUTTON_BACKGROUND_COLOR) {
   document.getElementById("pokemon-button4").style.background=WINNING_BUTTON_BACKGROUND_COLOR;
 }
 
-function changePokemonButtonColorsToDefault(DEFAULT_BUTTON_BACKGROUND_COLOR) {
-  document.getElementById("pokemon-button1").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
-  document.getElementById("pokemon-button2").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
-  document.getElementById("pokemon-button3").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
-  document.getElementById("pokemon-button4").style.background=DEFAULT_BUTTON_BACKGROUND_COLOR;
-}
-
 function hideLoadingCircle() {
     const loadingCircle = document.getElementById("loading");
     loadingCircle.style.display = "none";
@@ -61,7 +54,6 @@ async function setupGame() {
     const img = document.getElementById("pokemonOnTheScreen");
     img.src = winner.sprites.front_default;
 
-    changePokemonButtonColorsToDefault(DEFAULT_BUTTON_BACKGROUND_COLOR);
     hideLoadingCircle();
 
     for (let i = 0; i < pokemonButtons.length; i++) {

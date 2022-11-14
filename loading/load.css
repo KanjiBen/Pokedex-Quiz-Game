@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+
+}
+
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: url(images/balls.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+position: relative;
+top: 0;
+width: 100%;
+padding: 30px 100px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+header .logo { 
+position: relative;
+color:#000;
+font-size: 30px;
+text-decoration: none;
+text-transform: uppercase;
+font-weight:100;
+letter-spacing: 1px;
+}
+
+header .navigation a {
+  color: #000;
+  background: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 2px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property: background;
+}
+header .navigation a:not(:last-child) {
+margin-right: 30px;
+}
+
+header .navigation a:hover {
+  background: #fff;
+
+}
+
+.content {
+  max-width: 650px;
+  margin: 60px 100px;
+}
+
+.content .info h2 {
+  color: #226A80;
+  font-size: 55px;
+  text-transform: uppercase;
+  font-weight:800;
+  letter-spacing: 2px;
+  line-height: 60px;
+  margin-bottom: 30px;
+}
+
+.content .info h2 span {
+  color: #fff;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.content .info p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 40;
+  color: #fff;
+}
+
+.content .info-btn{
+  color: #fff;
+  background: #226a80;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+  transition-property: background;
+  display: flex;
+  justify-content: center;
+}
+
+.content .info:hover {
+  background: #0C4F60;
+}
+
+.media-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.media-icons a{
+  position: relative;
+  color: #fff;
+  font-size: 25px;
+  transition: 0.3s;
+  transition-property: transform;
+}
+
+.media .icons a:not(:last-child) {
+  margin-right: 60px;
+}
+
+.media-icons a:hover {
+  transform: scale(1.5);
+}

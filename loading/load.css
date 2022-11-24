@@ -18,45 +18,88 @@ section {
   background-position: center;
 }
 
-header {
-position: relative;
-top: 0;
-width: 100%;
-padding: 30px 100px;
-display: flex;
-justify-content: space-between;
-align-items: center;
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: white;
 }
 
-header .logo { 
-position: relative;
-color:#000;
-font-size: 30px;
-text-decoration: none;
-text-transform: uppercase;
-font-weight:100;
-letter-spacing: 1px;
+.logo-title {
+  font-size: 1.5rem;
+  margin: .5rem;
 }
 
-header .navigation a {
-  color: #000;
-  background: #fff;
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
   text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 1px;
-  padding: 2px 15px;
-  border-radius: 20px;
-  transition: 0.3s;
-  transition-property: background;
-}
-header .navigation a:not(:last-child) {
-margin-right: 30px;
+  color: white;
+  padding: 1rem;
+  display: block;
 }
 
-header .navigation a:hover {
-  background: #fff;
+.navbar-links li:hover {
+  background-color: #555;
 
 }
+
+.toggle-button {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/*Condition-When screen gets small enough, make nav bar appear   */
+@media (max-width: 600px) {
+.toggle-button {
+  display: flex;
+}
+.navbar-links {
+  display: none;
+  width: 100%;
+}
+.navbar {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.navbar-links ul {
+  width: 100%;
+  flex-direction: column;
+}
+.navbar-links li {
+  text-align: center;
+}
+.navbar-links li a {
+  padding: .5rem 1rem;
+}
+.navbar-links.active {
+  display: flex;
+}
+}
+
+
 
 .content {
   max-width: 650px;
@@ -101,9 +144,9 @@ header .navigation a:hover {
   justify-content: center;
 }
 
-.content .info:hover {
+/* .content .info:hover {
   background: #0C4F60;
-}
+} */
 
 .media-icons {
   display: flex;

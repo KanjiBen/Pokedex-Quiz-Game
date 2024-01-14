@@ -1,6 +1,8 @@
 # Pokedex-Quiz-Game
 
-Try the game here: https://akuchimoya.github.io/Pokedex-Quiz-Game/
+My first collaboration app! I reached out to a few random people on Reddit and we set up a small Discord server to learn how to build JavaScript applications. This was a great learning experience! Yeah, the code will be hilarious to look back on in a few years... I'm sure. 
+
+Try the game here: https://kanjiben.github.io/Pokedex-Quiz-Game/
 
 How to contribute 😃:
 1. Clone the repository. 
